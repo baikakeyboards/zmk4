@@ -15,6 +15,22 @@
             >;
         };
 
+     macros {
+        macro_1: macro_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp 6 &kp 4>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        macro_2: macro_2 {
+            ...
+        };
+        ...
+    };
+
         // Minimalus antras sluoksnis, kad Studio pamatytų
        layer_1 {
     display-name = "Layer 1";
