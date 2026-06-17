@@ -8,7 +8,34 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LALT>
-                , <&macro_tap &kp KP_N6 &kp KP_N4>
+                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        macro_2: macro_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N3 &kp KP_N2>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        macro_3: macro_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N4 &kp KP_N7>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        macro_4: macro_4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N6>
                 , <&macro_release &kp LALT>
                 ;
         };
@@ -19,7 +46,7 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                &macro_1 &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J &kp K &kp L
+                &macro_1 &macro_2 &macro_3 &macro_4 &kp E &kp F &kp G &kp H &kp I &kp J &kp K &kp L
                 &kp M &kp N &kp O &kp P &kp Q &kp R &kp S &kp T &kp U &kp V &kp W &kp X
                 &kp Y &kp Z &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J
                 &kp K &kp L &kp M &kp N &kp O &kp P
