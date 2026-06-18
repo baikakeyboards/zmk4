@@ -3,10 +3,14 @@
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <180>;
+    tapping-term-ms = <200>;
+    quick-tap-ms = <180>;
 };
 
-&lt { tapping-term-ms = <180>; };
+&lt {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <180>;
+};
 
 / {
     macros {
@@ -200,8 +204,9 @@
             bindings = <&tog>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             flavor = "tap-preferred";
+            quick-tap-ms = <180>;
         };
     };
 
