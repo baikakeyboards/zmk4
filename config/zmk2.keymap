@@ -3,65 +3,124 @@
 
 / {
     macros {
-        macro_1: macro_1 {
+        dash: dash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>
-                , <&macro_release &kp LALT>
-                ;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "DASH";
         };
-        macro_2: macro_2 {
+
+        quote1: quote1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N3 &kp KP_N2>
-                , <&macro_release &kp LALT>
-                ;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N3 &kp KP_N2>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "QUOTE1";
         };
-        macro_3: macro_3 {
+
+        quote2: quote2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N4 &kp KP_N7>
-                , <&macro_release &kp LALT>
-                ;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N4 &kp KP_N7>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "QUOTE2";
         };
-        macro_4: macro_4 {
+
+        degree: degree {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N6>
-                , <&macro_release &kp LALT>
-                ;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N6>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "DEGREE";
         };
     };
+
+    behaviors {
+        togkp: togkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TOGKP";
+            bindings = <&tog>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "Base";
+        base {
+            display-name = "base_layer";
             bindings = <
-                &macro_1 &macro_2 &macro_3 &macro_4 &kp E &kp F &kp G &kp H &kp I &kp J &kp K &kp L
-                &kp M &kp N &kp O &kp P &kp Q &kp R &kp S &kp T &kp U &kp V &kp W &kp X
-                &kp Y &kp Z &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J
-                &kp K &kp L &kp M &kp N &kp O &kp P
+&kp EQUAL  &kp Z           &kp D           &kp V               &kp H             &kp N2       &kp N3        &kp N1             &kp N7               &kp N5           &kp Q            &kp X
+&kp C      &mt LEFT_WIN S  &mt LEFT_ALT T  &mt LEFT_CONTROL N  &mt LEFT_SHIFT R  &kp M        &kp N4        &mt RIGHT_SHIFT A  &mt RIGHT_CONTROL E  &mt RIGHT_ALT I  &mt RIGHT_WIN K  &kp W
+&kp N6     &kp F           &kp G           &kp P               &kp L             &kp J        &kp N8        &kp O              &kp U                &kp Y            &kp B            &kp COMMA
+                                           &lt 1 DELETE        &kp SPACE         &lt 2 ENTER  &lt 3 ESCAPE  &kp BACKSPACE      &togkp 4 TAB
             >;
         };
 
         // Minimalus antras sluoksnis, kad Studio pamatytų
-       layer_1 {
-    display-name = "Layer 1";
-    bindings = <
-        &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans &trans
-    >;
-};
+
+        function {
+            display-name = "function_layer";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &kp INSERT  &kp F1  &kp F2   &kp F3   &kp F4   &kp C_PAUSE
+&trans  &trans  &trans  &trans  &trans  &trans  &kp HOME    &kp F5  &kp F6   &kp F7   &kp F8   &kp PAGE_UP
+&trans  &trans  &trans  &trans  &trans  &trans  &kp END     &kp F9  &kp F10  &kp F11  &kp F12  &kp PAGE_DOWN
+                        &trans  &trans  &trans  &trans      &trans  &trans
+            >;
+        };
+
+        number {
+            bindings = <
+&kp CAPSLOCK     &kp LC(F)         &kp LC(A)  &kp UP     &kp LC(Z)  &kp LC(LS(Z))    &kp C_VOLUME_UP    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp C_PREVIOUS    &kp C_NEXT
+&kp LC(S)        &kp LEFT_CONTROL  &kp LEFT   &kp DOWN   &kp RIGHT  &kp LC(LA(TAB))  &kp C_VOLUME_DOWN  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_NUMBER_0   &kp C_BRIGHTNESS_INC
+&kp PRINTSCREEN  &kp LEFT_SHIFT    &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(LS(V))    &kp C_MUTE         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp C_PLAY_PAUSE  &kp C_BRIGHTNESS_DEC
+                                              &trans     &trans     &trans           &trans             &trans           &trans
+            >;
+        };
+
+        symbol {
+            bindings = <
+&kp LEFT_BRACE    &kp RIGHT_BRACE    &kp RA(RS(N2))     &kp RA(RC(N5))  &kp RA(RS(N3))  &kp RA(RS(N6))  &kp TILDE          &kp RA(RS(N8))        &kp RA(E)              &kp UNDERSCORE  &kp LESS_THAN   &kp GREATER_THAN
+&dash             &kp SLASH          &kp DOUBLE_QUOTES  &kp MINUS       &kp QUESTION    &kp SEMICOLON   &kp RA(RS(EQUAL))  &kp PERIOD            &kp RA(RS(N1))         &kp COLON       &kp APOSTROPHE  &kp RA(RS(N4))
+&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &quote1            &quote2         &kp RA(EQUAL)   &kp PIPE        &degree            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RA(RS(N7))  &kp BACKSLASH   &kp GRAVE
+                                                        &trans          &trans          &trans          &trans             &trans                &trans
+            >;
+        };
+
+        gaming {
+            bindings = <
+&kp TAB           &kp Q  &kp W  &kp E       &kp R      &kp T      &trans      &trans         &trans        &trans  &trans  &trans
+&kp LEFT_CONTROL  &kp A  &kp S  &kp D       &kp F      &kp G      &trans      &trans         &trans        &trans  &trans  &trans
+&kp LEFT_SHIFT    &kp Z  &kp X  &kp C       &kp V      &kp B      &trans      &trans         &trans        &trans  &trans  &trans
+                                &kp DELETE  &kp SPACE  &kp ENTER  &kp ESCAPE  &kp BACKSPACE  &togkp 0 TAB
+            >;
+        };
     };
 };
