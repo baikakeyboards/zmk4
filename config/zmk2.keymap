@@ -107,10 +107,10 @@
 
         symbol {
             bindings = <
-&kp LEFT_BRACE    &kp RIGHT_BRACE    &kp RA(RS(N2))     &kp RA(RC(N5))  &kp RA(RS(N3))  &kp RA(RS(N6))  &kp TILDE          &kp RA(RS(N8))        &kp RA(E)              &kp UNDERSCORE  &kp LESS_THAN   &kp GREATER_THAN
-&dash             &kp SLASH          &kp DOUBLE_QUOTES  &kp MINUS       &kp QUESTION    &kp SEMICOLON   &kp RA(RS(EQUAL))  &kp PERIOD            &kp RA(RS(N1))         &kp COLON       &kp APOSTROPHE  &kp RA(RS(N4))
-&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &quote1            &quote2         &kp RA(EQUAL)   &kp PIPE        &degree            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RA(RS(N7))  &kp BACKSLASH   &kp GRAVE
-                                                        &trans          &trans          &trans          &trans             &trans                &trans
+&kp LEFT_BRACE    &kp RIGHT_BRACE    &kp LC(LA(LS(N2)))  &kp LA(LS(LC(N5)))  &kp LC(LS(LA(N3)))  &kp LC(LA(LS(N6)))  &kp TILDE              &kp LC(LA(LS(N8)))    &kp LC(LA(E))          &kp UNDERSCORE      &kp LESS_THAN   &kp GREATER_THAN
+&dash             &kp SLASH          &kp DOUBLE_QUOTES   &kp MINUS           &kp QUESTION        &kp SEMICOLON       &kp LC(LA(LS(EQUAL)))  &kp PERIOD            &kp LC(LA(LS(N1)))     &kp COLON           &kp APOSTROPHE  &kp LC(LS(LA(N4)))
+&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &quote1             &quote2             &kp LC(LA(EQUAL))   &kp PIPE            &degree                &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LC(LS(LA(N7)))  &kp BACKSLASH   &kp GRAVE
+                                                         &trans              &trans              &trans              &trans                 &trans                &trans
             >;
         };
 
