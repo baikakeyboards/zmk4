@@ -1,6 +1,13 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <180>;
+};
+
+&lt { tapping-term-ms = <180>; };
+
 / {
     macros {
         dash: dash {
@@ -58,6 +65,132 @@
 
             label = "DEGREE";
         };
+
+        at: at {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N6 &kp KP_N4>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "AT";
+        };
+
+        percent: percent {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_N7>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "PERCENT";
+        };
+
+        hashtag: hashtag {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_N5>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "HASHTAG";
+        };
+
+        caret: caret {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N9 &kp KP_N4>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "CARET";
+        };
+
+        equal: equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N6 &kp KP_N1>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "EQUAL";
+        };
+
+        euro: euro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N8>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "EURO";
+        };
+
+        exclamation: exclamation {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_N3>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "EXCLAMATION";
+        };
+
+        dollar: dollar {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_N6>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "DOLLAR";
+        };
+
+        and: and {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N3 &kp KP_N8>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "AND";
+        };
     };
 
     behaviors {
@@ -67,7 +200,8 @@
             bindings = <&tog>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <180>;
+            flavor = "tap-preferred";
         };
     };
 
@@ -107,10 +241,10 @@
 
         symbol {
             bindings = <
-&kp LEFT_BRACE    &kp RIGHT_BRACE    &kp LC(LA(LS(N2)))  &kp LA(LS(LC(N5)))  &kp LC(LS(LA(N3)))  &kp LC(LA(LS(N6)))  &kp TILDE              &kp LC(LA(LS(N8)))    &kp LC(LA(E))          &kp UNDERSCORE      &kp LESS_THAN   &kp GREATER_THAN
-&dash             &kp SLASH          &kp DOUBLE_QUOTES   &kp MINUS           &kp QUESTION        &kp SEMICOLON       &kp LC(LA(LS(EQUAL)))  &kp PERIOD            &kp LC(LA(LS(N1)))     &kp COLON           &kp APOSTROPHE  &kp LC(LS(LA(N4)))
-&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &quote1             &quote2             &kp LC(LA(EQUAL))   &kp PIPE            &degree                &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LC(LS(LA(N7)))  &kp BACKSLASH   &kp GRAVE
-                                                         &trans              &trans              &trans              &trans                 &trans                &trans
+&kp LEFT_BRACE    &kp RIGHT_BRACE    &at                &percent   &hashtag      &caret         &kp TILDE    &kp KP_ASTERISK       &euro                  &kp UNDERSCORE  &kp LESS_THAN   &kp GREATER_THAN
+&dash             &kp SLASH          &kp DOUBLE_QUOTES  &kp MINUS  &kp QUESTION  &kp SEMICOLON  &kp KP_PLUS  &kp PERIOD            &exclamation           &kp COLON       &kp APOSTROPHE  &dollar
+&kp LEFT_BRACKET  &kp RIGHT_BRACKET  &quote1            &quote2    &equal        &kp PIPE       &degree      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &and            &kp BACKSLASH   &kp GRAVE
+                                                        &trans     &trans        &trans         &trans       &trans                &trans
             >;
         };
 
@@ -119,7 +253,7 @@
 &kp TAB           &kp Q  &kp W  &kp E       &kp R      &kp T      &trans      &trans         &trans        &trans  &trans  &trans
 &kp LEFT_CONTROL  &kp A  &kp S  &kp D       &kp F      &kp G      &trans      &trans         &trans        &trans  &trans  &trans
 &kp LEFT_SHIFT    &kp Z  &kp X  &kp C       &kp V      &kp B      &trans      &trans         &trans        &trans  &trans  &trans
-                                &kp DELETE  &kp SPACE  &kp ENTER  &kp ESCAPE  &kp BACKSPACE  &togkp 0 TAB
+                                &kp DELETE  &kp SPACE  &kp ENTER  &kp ESCAPE  &kp BACKSPACE  &togkp 4 TAB
             >;
         };
     };
